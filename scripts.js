@@ -1,33 +1,67 @@
 // Q:1 Class - Movie
-class movie{
-    constructor(Title,studio,rating){
-        this.Title=Title;
-        this.studio=studio;
-        this.rating=rating
+class Movie {
+    constructor(title, studio, rating = "PG") {
+        this.title = title;
+        this.studio = studio;
+        this.rating = rating;
     }
-    
+
+    static getPG(movies) {
+        return movies.filter(movie => movie.rating === "PG");
+    }
 }
-var c1 = new movie("Casino Royale","Enon productions","PG13")
+
+const casinoRoyale = new Movie("Casino Royale", "Eon Productions", "PG-13");
+
+const moviesList = [
+    new Movie("shawshank", "Castle Rock Entertainment", "PG"),
+    new Movie("GodFather", "Paramount Picture", "PG-13"),
+    new Movie("Dark Knight", "warner Bros", "PG"),
+    new Movie("Inception", "Warner Bros", "PG-13"),
+];
+
+const pgMovies = Movie.getPG(moviesList);
+pgMovies.forEach(movie => console.log(movie.title));
 
 //Q:2 Circle - Class
-class circle{
-    constructor( radius , color){
-      this.radius=radius;
-      this.color=color;
+class Circle {
+    constructor(radius,color) {
+        this.radius = radius;
+       this.color = color;
     }
-    get_radius(){
+    getcircle(){
+        return this.radius,color;
+    }
+
+    getRadius() {
         return this.radius;
     }
-    gry_color(){
-return this.string
+
+    setRadius() {
+        this.radius = radius;
+    }
+    getColor(){
+        return this.color;
+    }
+    setColor(){
+        this.color = color;
+    }
+
+    getArea() {
+        return Math.PI * Math.pow(this.radius, 2);
+    }
+
+    getCircumference() {
+        return 2 * Math.PI * this.radius;
     }
 }
-var c1 = new circle("20","red");
-var c1 = new circle("double","String")
 
-var res=c1.get_radius();
-console.log(`${res}`);
-console.log(c1);
+const circle = new Circle(5,'red');
+console.log(`Radius: ${circle.getRadius()}`);
+console.log(`color:${circle.getColor()}`);
+console.log(`Area: ${circle.getArea()}`);
+console.log(`Circumference: ${circle.getCircumference()}`);
+
 
 //Q:3 Write a “person” class to hold all the details.
 class person{
